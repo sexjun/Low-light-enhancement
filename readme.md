@@ -21,6 +21,7 @@ python main.py
 ```
 ![alt text](image.png)
 
+![alt text](image-1.png)
 
 ## 概述
 
@@ -64,3 +65,5 @@ python main.py
     调整图像大小为500*500
     img = cv.resize(img, (500, 500))
 ```
+原理：
+![alt text](image-2.png)
