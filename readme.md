@@ -18,23 +18,22 @@
 ## 目录结构
 
 ```
-C:.
-├─.idea
-│  └─inspectionProfiles
-├─cds_arithmetic
-│  └─data
-│      ├─done
-│      │  ├─179
-│      │  ├─6
-│      │  ├─778
-│      │  ├─girl
-│      │  └─matlab
-│      └─src
-│          ├─high
-│          └─low
-└─retinex
-    ├─data
-    └─__pycache__
+├── cds_arithmetic  这个目录是本论文的算法
+│   ├── __pycache__
+│   ├── cds_retinex.py
+│   ├── data
+│   ├── readme.md
+│   └── video.py
+├── main.py   主函数在这里
+├── readme.md
+└── retinex 这个目录实现各种retinex算法
+    ├── README.md
+    ├── __pycache__
+    ├── config.json
+    ├── data
+    ├── retinex.py
+    ├── run.py
+    └── run_cds.py
 
 
 ```
@@ -48,18 +47,17 @@ C:.
 - python3.x
 - opencv3.x or opencv4.x
 
+```
+conda install opencv
+```
+
 ## 使用方法
 
 配置好环境可以直接运行。
 
-
-
-```git
-git remote add origin git@github.com:sexjun/-1602--.git
-git push -u origin master
 ```
-
-
-
-
+cd /home/cds/github/Low-light-enhancement
+python main.py
+```
+![alt text](image.png)
 
