@@ -7,8 +7,7 @@ from retinex.retinex import *
 test_png = "./cds_arithmetic/data/src/3.jpg"
 
 
-def cds_algo():
-    img = read_img_from_disk(test_png)  # 读取图像
+def cds_algo(img):
     img_illumination = get_illumination(img)  # 获得高频分量
     img_reflect = get_reflect(img, img_illumination)  # 获得反射分量
     img_enhancement_reflect = enhancement_reflect(img_reflect)  # 增强反射分量
@@ -22,10 +21,9 @@ def cds_algo():
     cv.imshow("cds-algo", img_done)
 
 
-def retinex_algo():
+def retinex_algo(img):
     with open("./retinex/config.json", "r") as f:
         config = json.load(f)
-    img = cv.imread(test_png)
     # img = cv.resize(img, (0, 0), fx=0.2, fy=0.2, interpolation=cv.INTER_NEAREST)
     img_msrcr = MSRCR(
         img,
@@ -45,31 +43,24 @@ def retinex_algo():
     )
 
     shape = img.shape
-    cv.imshow("原图", img)
+    cv.imshow("origin-png", img)
     cv.imshow("retinex", img_msrcr)
     cv.imshow("Automated_retinex", img_amsrcr)
     cv.imshow("MSRCP", img_msrcp)
 
 
 if __name__ == "__main__":
-    cds_algo()
-    retinex_algo()
-    # 记录开始时间
-    start_time = time.time()
+    img = read_img_from_disk(test_png)  # 读取图像
+    # 获取原始图像的尺寸
+    height, width = img.shape[:2]
+    print("原始图像高度:", height)
+    print("原始图像宽度:", width)
 
-    while True:
-        # 等待按键事件，返回值为按下键的ASCII码
-        key = cv.waitKey(1)
-
-        # 计算已经过去的时间
-        elapsed_time = time.time() - start_time
-
-        print("倒计时60 s 关闭窗口", elapsed_time)
-
-        # 如果已经过去了60秒，就退出循环
-        if elapsed_time >= 60:
-            break
-
+    # 调整图像大小为500*500
+    img = cv.resize(img, (500, 500))
+    cds_algo(img)
+    retinex_algo(img)
+    cv.waitKey(0)
     print("关闭所有窗口")
     # 关闭所有窗口
     cv.destroyAllWindows()

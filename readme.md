@@ -2,6 +2,15 @@
 
 [toc]
 
+## 使用方法 & 效果展示
+
+配置好环境可以直接运行。
+
+```
+cd /home/cds/github/Low-light-enhancement
+python main.py
+```
+![alt text](image.png)
 
 
 ## 概述
@@ -34,12 +43,7 @@
     ├── retinex.py
     ├── run.py
     └── run_cds.py
-
-
 ```
-
-
-
 ![](https://tu-chuang-1253216127.cos.ap-beijing.myqcloud.com/20200605172448.png)
 
 ## 配置环境
@@ -50,14 +54,12 @@
 ```
 conda install opencv
 ```
+## note
 
-## 使用方法
+为了快速预览效果，我把图像resize到 `500*500`区间了
 
-配置好环境可以直接运行。
-
+删除下面这行代码即可看到原始图像的处理
 ```
-cd /home/cds/github/Low-light-enhancement
-python main.py
+    调整图像大小为500*500
+    img = cv.resize(img, (500, 500))
 ```
-![alt text](image.png)
-
