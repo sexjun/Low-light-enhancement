@@ -2,6 +2,15 @@
 
 [toc]
 
+## 配置环境
+
+- python3.x
+- opencv3.x or opencv4.x
+
+```
+conda install opencv
+```
+
 ## 使用方法 & 效果展示
 
 配置好环境可以直接运行。
@@ -22,7 +31,6 @@ python main.py
 **备注：**
 
 本仓库首次上传代码时间为：6-5号，在答辩结束之后才会将论文上传上来。原理在论文内解释。
-![](https://tu-chuang-1253216127.cos.ap-beijing.myqcloud.com/20200605173632.png)
 
 ## 目录结构
 
@@ -46,14 +54,7 @@ python main.py
 ```
 ![](https://tu-chuang-1253216127.cos.ap-beijing.myqcloud.com/20200605172448.png)
 
-## 配置环境
 
-- python3.x
-- opencv3.x or opencv4.x
-
-```
-conda install opencv
-```
 ## note
 
 为了快速预览效果，我把图像resize到 `500*500`区间了
